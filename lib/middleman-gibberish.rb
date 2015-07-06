@@ -193,13 +193,17 @@ module ::Middleman
               </div>
             </body>
             <script src="/javascripts/externalize.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js"></script>
           </html>
 
 
           #{ scripts.join("\n") }
 
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js"></script>
           <script>
+          var jq = document.createElement('script'); jq.type = 'text/javascript';
+          jq.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js';
+          document.getElementsByTagName('head')[0].appendChild(jq);
+
             var encrypted = #{ encrypted.to_json };
             var cookie = #{ glob.to_json };
             var options = {path: "/", expires: 1};
