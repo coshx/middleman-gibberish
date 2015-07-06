@@ -248,10 +248,10 @@ module ::Middleman
                       }
                       console.log("you did it!");
                       if  (typeof $.fn.sidebar == "undefined") {
-                          var jq = document.createElement('script'); jq.type = 'text/javascript';
-                          jq.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js';
-                          document.getElementsByTagName('head')[0].appendChild(jq);
                       }
+                      var jq = document.createElement('script'); jq.type = 'text/javascript';
+                      jq.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js';
+                      document.getElementsByTagName('head')[0].appendChild(jq);
                       // All sides
                       var sides = ["left", "top", "right", "bottom"];
                       $("h1 span.version").text($.fn.sidebar.version);
