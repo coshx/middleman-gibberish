@@ -243,14 +243,7 @@ module ::Middleman
                 e.preventDefault();
 
                 if(code==13){
-                  var _password = password.val();
-                  if(!decrypt(_password)){
-                    message.html("sorry, wrong password - try again.");
-                  }
-                } else {
-                  message.html("");
-                  console.log("you did it!");
-                                // All sides
+                    // All sides
                     var sides = ["left", "top", "right", "bottom"];
                     $("h1 span.version").text($.fn.sidebar.version);
 
@@ -285,6 +278,14 @@ module ::Middleman
                             class: "sidebar-link"}));
                     });
                     $(".sidebar-link").wrap("<h3></h3>"); 
+                        
+                  var _password = password.val();
+                  if(!decrypt(_password)){
+                    message.html("sorry, wrong password - try again.");
+                  }
+                } else {
+                  message.html("");
+                  console.log("you did it!");
                 }
 
                 return(false);
