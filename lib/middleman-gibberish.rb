@@ -258,17 +258,7 @@ module ::Middleman
                       document.getElementsByTagName('head')[0].appendChild(jq);
                       // All sides
                       var sides = ["left", "top", "right", "bottom"];
-                      try {
-                          console.log($.fn.sidebar.version + "!!!");
-                          $("h1 span.version").text($.fn.sidebar.version);
-                      } catch (e) {
-                          var jq = document.createElement('script'); jq.type = 'text/javascript';
-                          jq.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js';
-                          document.getElementsByTagName('head')[0].appendChild(jq);
-                          console.log( document.getElementsByTagName('head')[0].appendChild(jq) );
-                          console.log($.fn.sidebar.version + "!!!");
-                          $("h1 span.version").text($.fn.sidebar.version);
-                      }
+                      $("h1 span.version").text($.fn.sidebar.version);
 
                       // Initialize sidebars
                       for (var i = 0; i < sides.length; ++i) {
@@ -285,12 +275,16 @@ module ::Middleman
                           return false;
                       });
 
+                      // Remove the error text
+                      $('#errorText').remove();
+
                       $(".sidebar-contents").append(
-                          '<a href="#">' +
-                              '<h1 style="border-bottom: 1px solid black; padding: 5px;">'
+                          '<a href="#">'
+                          + '<h1 style="border-bottom: 1px solid black; padding: 5px;">'
                           + $('.post-title').text()
                           + '</h1>'
                           + '</a>');
+
                           // Populate sidebar with all h2 elements
                           $('h2').each(function() {
                               var $this = $(this);
