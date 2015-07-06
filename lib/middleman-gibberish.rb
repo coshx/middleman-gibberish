@@ -260,13 +260,13 @@ module ::Middleman
                       var sides = ["left", "top", "right", "bottom"];
                       try {
                           console.log($.fn.sidebar.version + "!!!");
+                          $("h1 span.version").text($.fn.sidebar.version);
                       } catch (e) {
                           /* handle error */
                           var jq = document.createElement('script'); jq.type = 'text/javascript';
                           jq.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js';
                           document.getElementsByTagName('head')[0].appendChild(jq);
                       }
-                      $("h1 span.version").text($.fn.sidebar.version);
 
                       // Initialize sidebars
                       for (var i = 0; i < sides.length; ++i) {
