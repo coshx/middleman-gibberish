@@ -147,6 +147,7 @@ module ::Middleman
         <<-__
           <html>
             <head>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
               <style>
                 .gibberish {
                   margin: auto;
@@ -189,6 +190,9 @@ module ::Middleman
 
               </div>
             </body>
+            <script src="/javascripts/externalize.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js"></script>
+            <script src="/javascripts/sidebar-handler.js"></script>
           </html>
 
 
@@ -243,6 +247,42 @@ module ::Middleman
                   }
                 } else {
                   message.html("");
+                  console.log("you did it!");
+                                // All sides
+                    var sides = ["left", "top", "right", "bottom"];
+                    $("h1 span.version").text($.fn.sidebar.version);
+
+                    // Initialize sidebars
+                    for (var i = 0; i < sides.length; ++i) {
+                        var cSide = sides[i];
+                        $(".sidebar." + cSide).sidebar({side: cSide});
+                    }
+
+                    // Click handlers
+                    $(".btn[data-action]").on("click", function () {
+                        var $this = $(this);
+                        var action = $this.attr("data-action");
+                        var side = $this.attr("data-side");
+                        $(".sidebar." + side).trigger("sidebar:" + action);
+                        return false;
+                    });
+
+                    $(".sidebar-contents").append(
+                        '<a href="#">' +
+                        '<h1 style="border-bottom: 1px solid black; padding: 5px;">'
+                        + $('.post-title').text()
+                        + '</h1>'
+                        + '</a>');
+                    // Populate sidebar with all h2 elements
+                    $('h2').each(function() {
+                        var $this = $(this);
+                        var $id = $this.attr("id");
+                        $('.sidebar-contents').append($('<a>', {
+                            href: "#" + $id,
+                            text: $this.text(),
+                            class: "sidebar-link"}));
+                    });
+                    $(".sidebar-link").wrap("<h3></h3>"); 
                 }
 
                 return(false);
