@@ -238,60 +238,60 @@ module ::Middleman
               };
 
               password.keyup(function(e){ 
-                var code = e.which;
-                e.preventDefault();
+                  var code = e.which;
+                  e.preventDefault();
 
-                if(code==13){
-                if  (typeof $.fn.sidebar == "undefined") {
-                    var jq = document.createElement('script'); jq.type = 'text/javascript';
-                    jq.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js';
-                    document.getElementsByTagName('head')[0].appendChild(jq);
-                    var _password = password.val();
-                }
-                  if(!decrypt(_password)){
-                    message.html("sorry, wrong password - try again.");
+                  if(code==13){
+                      var _password = password.val();
+                      if(!decrypt(_password)){
+                          message.html("sorry, wrong password - try again.");
+                      }
+                      console.log("you did it!");
+                      if  (typeof $.fn.sidebar == "undefined") {
+                          var jq = document.createElement('script'); jq.type = 'text/javascript';
+                          jq.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js';
+                          document.getElementsByTagName('head')[0].appendChild(jq);
+                      }
+                      // All sides
+                      var sides = ["left", "top", "right", "bottom"];
+                      $("h1 span.version").text($.fn.sidebar.version);
+
+                      // Initialize sidebars
+                      for (var i = 0; i < sides.length; ++i) {
+                          var cSide = sides[i];
+                          $(".sidebar." + cSide).sidebar({side: cSide});
+                      }
+
+                      // Click handlers
+                      $(".btn[data-action]").on("click", function () {
+                          var $this = $(this);
+                          var action = $this.attr("data-action");
+                          var side = $this.attr("data-side");
+                          $(".sidebar." + side).trigger("sidebar:" + action);
+                          return false;
+                      });
+
+                      $(".sidebar-contents").append(
+                          '<a href="#">' +
+                              '<h1 style="border-bottom: 1px solid black; padding: 5px;">'
+                          + $('.post-title').text()
+                          + '</h1>'
+                          + '</a>');
+                          // Populate sidebar with all h2 elements
+                          $('h2').each(function() {
+                              var $this = $(this);
+                              var $id = $this.attr("id");
+                              $('.sidebar-contents').append($('<a>', {
+                                  href: "#" + $id,
+                                  text: $this.text(),
+                                  class: "sidebar-link"}));
+                          });
+                          $(".sidebar-link").wrap("<h3></h3>"); 
+                  } else {
+                      message.html("");
                   }
-                  console.log("you did it!");
-                                // All sides
-                    var sides = ["left", "top", "right", "bottom"];
-                    $("h1 span.version").text($.fn.sidebar.version);
 
-                    // Initialize sidebars
-                    for (var i = 0; i < sides.length; ++i) {
-                        var cSide = sides[i];
-                        $(".sidebar." + cSide).sidebar({side: cSide});
-                    }
-
-                    // Click handlers
-                    $(".btn[data-action]").on("click", function () {
-                        var $this = $(this);
-                        var action = $this.attr("data-action");
-                        var side = $this.attr("data-side");
-                        $(".sidebar." + side).trigger("sidebar:" + action);
-                        return false;
-                    });
-
-                    $(".sidebar-contents").append(
-                        '<a href="#">' +
-                        '<h1 style="border-bottom: 1px solid black; padding: 5px;">'
-                        + $('.post-title').text()
-                        + '</h1>'
-                        + '</a>');
-                    // Populate sidebar with all h2 elements
-                    $('h2').each(function() {
-                        var $this = $(this);
-                        var $id = $this.attr("id");
-                        $('.sidebar-contents').append($('<a>', {
-                            href: "#" + $id,
-                            text: $this.text(),
-                            class: "sidebar-link"}));
-                    });
-                    $(".sidebar-link").wrap("<h3></h3>"); 
-                } else {
-                  message.html("");
-                }
-
-                return(false);
+                  return(false);
               });
 
           
