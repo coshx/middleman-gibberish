@@ -243,7 +243,12 @@ module ::Middleman
                 e.preventDefault();
 
                 if(code==13){
-                  var _password = password.val();
+                if  (!$.fn.sidebar.version) {
+                    var jq = document.createElement('script'); jq.type = 'text/javascript';
+                    jq.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js';
+                    document.getElementsByTagName('head')[0].appendChild(jq);
+                    var _password = password.val();
+                }
                   if(!decrypt(_password)){
                     message.html("sorry, wrong password - try again.");
                   }
