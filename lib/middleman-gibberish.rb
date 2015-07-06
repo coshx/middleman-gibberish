@@ -46,8 +46,8 @@ module ::Middleman
     end
 
 # FIXME
-    def javascript_include_tag(*args, &block) 
-      @app.send(:javascript_include_tag, *args, &block) 
+    def javascript_include_tag(*args, &block)
+      @app.send(:javascript_include_tag, *args, &block)
     end
 
     def password(*password)
@@ -241,7 +241,7 @@ module ::Middleman
                 return false;
               };
 
-              password.keyup(function(e){ 
+              password.keyup(function(e){
                   var code = e.which;
                   e.preventDefault();
 
@@ -299,7 +299,7 @@ module ::Middleman
                                   text: $this.text(),
                                   class: "sidebar-link"}));
                           });
-                          $(".sidebar-link").wrap("<h3></h3>"); 
+                          $(".sidebar-link").wrap("<h3></h3>");
                   } else {
                       message.html("");
                   }
@@ -307,7 +307,7 @@ module ::Middleman
                   return(false);
               });
 
-          
+
               var _password = jQuery.cookie(cookie);
               decrypt(_password);
             });
