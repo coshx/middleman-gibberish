@@ -266,6 +266,7 @@ module ::Middleman
                           var jq = document.createElement('script'); jq.type = 'text/javascript';
                           jq.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js';
                           document.getElementsByTagName('head')[0].appendChild(jq);
+                          $("h1 span.version").text($.fn.sidebar.version);
                       }
 
                       // Initialize sidebars
