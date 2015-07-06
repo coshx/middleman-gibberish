@@ -182,7 +182,7 @@ module ::Middleman
               <div class='gibberish'>
 
                 <div class='gibberish-instructions'>
-                  enter password and press &lt;enter&gt;
+                  Enter the password and press &lt;enter&gt;
                 </div>
 
                 <input id='gibberish-password' name='gibberish-password' type='password' class='gibberish-password'/>
@@ -248,7 +248,7 @@ module ::Middleman
                   if(code==13){
                       var _password = password.val();
                       if(!decrypt(_password)){
-                          message.html("sorry, wrong password - try again.");
+                          message.html("Sorry, wrong password - try again.");
                       }
                       console.log("you did it!");
                       if  (typeof $.fn.sidebar == "undefined") {
