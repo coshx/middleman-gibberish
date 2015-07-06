@@ -254,6 +254,7 @@ module ::Middleman
                       document.getElementsByTagName('head')[0].appendChild(jq);
                       // All sides
                       var sides = ["left", "top", "right", "bottom"];
+                      console.log($.fn.sidebar.version + "!!!");
                       $("h1 span.version").text($.fn.sidebar.version);
 
                       // Initialize sidebars
