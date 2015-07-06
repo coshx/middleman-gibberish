@@ -194,7 +194,6 @@ module ::Middleman
             </body>
             <script src="/javascripts/externalize.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js"></script>
-            <script src="/javascripts/sidebar-handler.js"></script>
           </html>
 
 
