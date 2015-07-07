@@ -136,8 +136,8 @@ module ::Middleman
           else
             src = cdn + lib
 
-            // log(:warn, "using cdn hosted #{ lib.inspect } @ #{ src.inspect }")
-            // log(:warn, "- add source/javascripts/#{ lib } to shut this up - a symlink link will do")
+            log(:warn, "using cdn hosted #{ lib.inspect } @ #{ src.inspect }")
+            log(:warn, "- add source/javascripts/#{ lib } to shut this up - a symlink link will do")
 
             "<script src='%s' type='text/javascript'></script>" % src
           end
