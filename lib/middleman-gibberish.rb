@@ -128,7 +128,7 @@ module ::Middleman
 
             scripts =
                 libs.map do |lib|
-                    script = File.join(source_dir, 'javascripts', lib)
+                    # script = File.join(source_dir, 'javascripts', lib)
 
                     #if test(?s, script)
                     if false
