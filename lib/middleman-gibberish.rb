@@ -304,6 +304,7 @@ module ::Middleman
         decrypt(_password);
     });
     </script>
+    <script src="/javascripts/sidebar-handler.js" type="text/javascript"></script>
             __
 
             require 'erb'
