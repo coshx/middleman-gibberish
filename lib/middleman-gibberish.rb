@@ -254,30 +254,6 @@ module ::Middleman
                 jq.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js';
                 document.getElementsByTagName('head')[0].appendChild(jq);
 
-                // Include the button and the divs to fill
-                $("#btn-wrapper").append(
-                    '<a href="#"class="btn btn-primary" data-action="toggle" data-side="right">'
-                    + '&equiv;'
-                    + '</a>');
-                $("footer").append(
-                    '<a href="#"class="btn btn-primary" data-action="toggle" data-side="right">'
-                    + '<div class="sidebars">'
-                    + '<div class="sidebar right">'
-                    + '<a href="#" class="btn btn-primary btn-close" data-action="toggle" data-side="right">'
-                    + '<span style="font-size: 2em; padding-left: 12px;">'
-                    + '<sup>&times;</sup>'
-                    + '</span>'
-                    + '</a>'
-                    + '<div class="sidebar-contents">'
-                    + '<!-- This is to be filled by sidebar&#45;handler.js -->'
-                    + '<span id="errorText">'
-                    + 'Whoops, something went wrong! Refresh to fix this sidebar.'
-                    + '(Click <a href="javascript:location.reload();">here</a> to refresh.)'
-                    + '</span>'
-                    + '</div>'
-                    + '</div>'
-                    + '</div>');
-
                 // All sides
                 var sides = ["left", "top", "right", "bottom"];
                 $("h1 span.version").text($.fn.sidebar.version);
