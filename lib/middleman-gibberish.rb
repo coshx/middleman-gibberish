@@ -146,7 +146,6 @@ module ::Middleman
     <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js"></script>
-    <script src="/javascripts/externalize.js" type="text/javascript"></script>
     <style>
     .gibberish {
         margin: auto;
@@ -189,7 +188,6 @@ module ::Middleman
 
     </div>
     </body>
-    <script src="/javascripts/externalize.js"></script>
     </html>
 
 
