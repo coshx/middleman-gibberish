@@ -142,8 +142,10 @@ module ::Middleman
 
             template =
                 <<-__
-    <html>
+    <!DOCTYPE html>
+    <html lang="en">
     <head>
+    <title>codenoworg.github.io -- Enter Password</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.1.0/jquery.sidebar.min.js"></script>
     <style>
