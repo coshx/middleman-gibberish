@@ -147,6 +147,7 @@ module ::Middleman
                 <<-__
           <html>
             <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
               <style>
                 .gibberish {
                   margin: auto;
@@ -179,7 +180,7 @@ module ::Middleman
               <div class='gibberish'>
 
                 <div class='gibberish-instructions'>
-                  enter password and press &lt;enter&gt;
+                  Enter the password and press &lt;enter&gt;
                 </div>
 
                 <input id='gibberish-password' name='gibberish-password' type='password' class='gibberish-password'/>
@@ -232,14 +233,14 @@ module ::Middleman
                 return false;
               };
 
-              password.keyup(function(e){ 
+              password.keyup(function(e){
                 var code = e.which;
                 e.preventDefault();
 
                 if(code==13){
                   var _password = password.val();
                   if(!decrypt(_password)){
-                    message.html("sorry, wrong password - try again.");
+                    message.html("Sorry, wrong password.</br>Forgot? Please tell Code Now staff.");
                   }
                 } else {
                   message.html("");
