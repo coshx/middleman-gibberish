@@ -180,7 +180,7 @@ module ::Middleman
               <div class='gibberish'>
 
                 <div class='gibberish-instructions'>
-                  Enter the password and press &lt;enter&gt;
+                  Enter the password below.
                 </div>
 
                 <input id='gibberish-password' name='gibberish-password' type='password' class='gibberish-password'/>
