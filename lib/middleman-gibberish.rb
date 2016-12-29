@@ -46,8 +46,16 @@ module ::Middleman
         end
 
         # FIXME
-        def javascript_include_tag(*args, &block) 
-            @app.send(:javascript_include_tag, *args, &block) 
+        def javascript_include_tag(*args, &block)
+            @app.send(:javascript_include_tag, *args, &block)
+        end
+
+        def custom_js
+          @custom_js || ""
+        end
+
+        def custom_js=(js)
+          @custom_js = js
         end
 
         def password(*password)
@@ -213,6 +221,7 @@ module ::Middleman
                     var decrypted = GibberishAES.dec(encrypted, _password);
 
                     document.write(decrypted);
+                    #{ custom_js };
 
                     try{
                       jQuery.cookie(cookie, _password, options);
@@ -240,7 +249,7 @@ module ::Middleman
                 if(code==13){
                   var _password = password.val();
                   if(!decrypt(_password)){
-                    message.html("Sorry, wrong password.</br>Forgot? Please tell Code Now staff.");
+                    message.html("Sorry, wrong password.");
                   }
                 } else {
                   message.html("");

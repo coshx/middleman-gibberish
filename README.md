@@ -7,9 +7,6 @@ SYNOPSIS
 --------
 password protected senstive web content with javascript only.  
 
-**Note:** This has been modified to include a custom loader for a sidebar
-for CodeNow.
-
 the implementation is serverless and works even on s3.
 
 DESCRIPTION
@@ -87,6 +84,9 @@ USAGE
   # set the default password
 
     gibberish.password = 'gibberish'
+
+  # set some custom javascript to execute after decrypting the page
+    gibberish.custom_js = 'alert("decrypted!")'
 
   # encrypt a page with the default password
 
